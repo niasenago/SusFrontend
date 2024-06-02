@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Among Us Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: auto;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://j.gifs.com/2x06Lv.gif') repeat center center fixed;
+            background-size: cover;
+            animation: animatedBackground 30s linear infinite;
+        }
+
+        @keyframes animatedBackground {
+            0% { background-position: 0 0; }
+            50% { background-position: 100% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        header {
+            background-color: rgba(0, 0, 50, 0.9);
+            padding: 20px;
+            border-bottom: 2px solid #00f0ff;
+            box-shadow: 0 0 10px #00f0ff;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #00f0ff;
+            text-shadow: 0 0 10px #00f0ff;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: rgba(0, 0, 50, 0.8);
+            border-radius: 15px;
+            margin: 20px;
+            display: inline-block;
+            box-shadow: 0 0 20px #00f0ff;
+        }
+
+        .rules, .stats {
+            background-color: rgba(0, 0, 70, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px #00f0ff;
+	    overflow-y: auto;
+        }
+
+        .rules ul {
+            text-align: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        .rules li::before {
+            content: "✦";
+            color: #00f0ff;
+            padding-right: 10px;
+        }
+
+        .start-button, .download-button {
+            background-color: #00f0ff;
+            border: none;
+            color: #000;
+            padding: 15px 30px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px #00f0ff;
+        }
+
+        .start-button:hover, .download-button:hover {
+            background-color: #00aaff;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1>Among Us</h1>
+    </header>
+    <div class="content">
+        <div class="rules">
+            <h2>How to Play</h2>
+            <p>Among Us is a multiplayer game where you and your crewmates must work together to complete tasks around a spaceship. However, beware as there are impostors among you trying to sabotage your efforts and eliminate crewmates!</p>
+            <h2>Rules:</h2>
+            <ul>
+                <li>Crewmates must complete tasks to win.</li>
+                <li>Impostors must eliminate Crewmates and avoid being identified.</li>
+                <li>Meetings can be called to discuss and vote on the Impostor.</li>
+                <li>Impostors can sabotage the map to create chaos.</li>
+            </ul>
+        </div>
+        <button class="start-button" onclick="startGame()">Start Game</button>
+        
+        <div class="stats">
+            <h2>Online Players and Stats</h2>
+            <p id="playerCount">Players Online: 0</p>
+            <p id="gameStats">Games Played: 0</p>
+        </div>
+        
+        <div class="discussion">
+            <h2>Join the Discussion</h2>
+            <p>Join our Discord community to discuss strategies, share your experiences, and find other players to team up with!</p>
+            <button class="download-button" onclick="window.location.href='https://discord.gg/rP77uzwW'">Join Discord</button>
+        </div>
+        
+        <div class="download">
+            <h2>Download the Game</h2>
+            <p>If you are interested in downloading the game, click on the following buttons:</p>
+            <button class="download-button" onclick="downloadGame('windows')">Download for Windows</button>
+            <button class="download-button" onclick="downloadGame('apple')">Download for Apple</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to start the game and redirect to the specified URL
+        function startGame() {
+            window.location.href = "https://example.com/game-client"; // Replace with your game client URL
+        }
+
+        // Function to download the game for specified platform
+        function downloadGame(platform) {
+            if (platform === 'windows') {
+                window.location.href = "https://play.google.com/store/apps/details/?id=com.innersloth.spacemafia"; // Replace with your Windows download URL
+            } else if (platform === 'apple') {
+                window.location.href = "https://apps.apple.com/us/app/among-us/id1351168404"; // Replace with your Apple download URL
+            }
+        }
+
+        // Dummy function to simulate fetching online player stats
+        function updateStats() {
+            // Simulate fetching data
+            const playersOnline = 0;  // Example data
+            const gamesPlayed = 0;   // Example data
+
+            document.getElementById('playerCount').innerText = `Players Online: ${playersOnline}`;
+            document.getElementById('gameStats').innerText = `Games Played: ${gamesPlayed}`;
+        }
+
+        // Update stats every 5 seconds
+        setInterval(updateStats, 5000);
+    </script>
+</body>
+</html>
